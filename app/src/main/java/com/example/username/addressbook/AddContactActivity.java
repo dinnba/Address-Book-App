@@ -1,7 +1,7 @@
-//Brittany Dinneen
-//Android Exam 1 Programming Portion
+//Brittany Dinneen and Keith Hubbard
+//Android Final Project
 //Address Book
-//Due 9/28/15
+//Due 12/04/2015
 package com.example.username.addressbook;
 
 import android.content.Context;

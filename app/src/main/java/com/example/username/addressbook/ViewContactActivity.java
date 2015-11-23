@@ -1,3 +1,8 @@
+//Brittany Dinneen and Keith Hubbard
+//Android Final Project
+//Address Book
+//Due 12/04/2015
+
 package com.example.username.addressbook;
 
 import android.content.Intent;

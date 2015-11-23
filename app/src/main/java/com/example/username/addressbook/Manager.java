@@ -1,7 +1,7 @@
-//Brittany Dinneen
-//Android Exam 1 Programming Portion
+//Brittany Dinneen and Keith Hubbard
+//Android Final Project
 //Address Book
-//Due 9/28/15
+//Due 12/04/2015
 /*
 * This is the Application Manager
 * The Manager.java class allows the sharing of data between activities/pages easily

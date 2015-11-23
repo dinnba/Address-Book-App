@@ -47,6 +47,11 @@
             android:textSize="20sp"
             android:layout_weight="1" />
 
+        <ImageButton
+            android:id="@+id/callImage"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+        
         <Button
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
