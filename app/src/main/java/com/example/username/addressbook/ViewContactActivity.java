@@ -91,13 +91,17 @@ public class ViewContactActivity extends AppCompatActivity {
         redirectToMapsButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String street = contactInfo.get(3);
+                String address = contactInfo.get(3);
                 String y = contactInfo.get(4);
                 String[] array = y.split("/");
-                String city = array[0];
-                String state = array[1];
-                String zip = array[2];
-                String address = street + " " + city + " " + state + " " + zip;
+
+                address += " "+array[0];
+                if(array.length > 1) {
+                    address += " "+array[1];
+                }
+                if(array.length > 2) {
+                    address += " "+array[2];
+                }
 
 
                 Uri gmmIntentUri = Uri.parse("geo:0,0?q=" + address);
