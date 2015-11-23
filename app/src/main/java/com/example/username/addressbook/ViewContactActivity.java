@@ -5,25 +5,16 @@
 
 package com.example.username.addressbook;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class ViewContactActivity extends AppCompatActivity {
@@ -39,6 +30,8 @@ public class ViewContactActivity extends AppCompatActivity {
     private ArrayList <ArrayList> contact = new ArrayList<>();
     private Database db;
     private ImageButton callContactButton;
+    private ImageButton textContactButton;
+    private ImageButton emailContactButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -87,6 +80,32 @@ public class ViewContactActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse(numberToSend));
                 startActivity(intent);
+            }
+        });
+
+        textContactButton = (ImageButton) findViewById(R.id.textButton);
+        textContactButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                String numberToSend = "sms:" + contactInfo.get(1);
+
+                Uri uri = Uri.parse(numberToSend);
+                Intent intent = new Intent(Intent.ACTION_SENDTO, uri);
+                startActivity(intent);
+            }
+        });
+
+        emailContactButton = (ImageButton) findViewById(R.id.emailButton);
+        emailContactButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/html");
+                intent.putExtra(Intent.EXTRA_EMAIL, contactInfo.get(2));
+                startActivity(Intent.createChooser(intent, "Send Email"));
+
             }
         });
 
