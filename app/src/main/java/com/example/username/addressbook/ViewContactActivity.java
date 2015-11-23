@@ -5,7 +5,11 @@
 
 package com.example.username.addressbook;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -14,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +38,7 @@ public class ViewContactActivity extends AppCompatActivity {
     private ArrayList<String> contactInfo = new ArrayList<>();
     private ArrayList <ArrayList> contact = new ArrayList<>();
     private Database db;
+    private ImageButton callContactButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +48,6 @@ public class ViewContactActivity extends AppCompatActivity {
 
         position = Manager.getInstance().getPosition();
         /*Log.d("POSITION", position + "");//Test print*/
-
 
         contact = db.getAllContacts();//get all stored db contacts
 
@@ -72,6 +77,19 @@ public class ViewContactActivity extends AppCompatActivity {
             }
         });
 
+        callContactButton = (ImageButton) findViewById(R.id.callButton);
+        callContactButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                String numberToSend = "tel:" + contactInfo.get(1);
+
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse(numberToSend));
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
@@ -96,7 +114,5 @@ public class ViewContactActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-/*    public void callButtonClicked(){
-        Log.d("Call button clicked", position + "");//Test print
-    }*/
+
 }
