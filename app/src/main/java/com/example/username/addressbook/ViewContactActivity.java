@@ -39,6 +39,7 @@ public class ViewContactActivity extends AppCompatActivity {
     private ArrayList <ArrayList> contact = new ArrayList<>();
     private Database db;
     private ImageButton callContactButton;
+    private ImageButton redirectToMapsButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +78,7 @@ public class ViewContactActivity extends AppCompatActivity {
             }
         });
 
+
         callContactButton = (ImageButton) findViewById(R.id.callButton);
         callContactButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -87,6 +89,26 @@ public class ViewContactActivity extends AppCompatActivity {
                 Intent intent = new Intent(Intent.ACTION_DIAL);
                 intent.setData(Uri.parse(numberToSend));
                 startActivity(intent);
+            }
+        });
+
+        redirectToMapsButton = (ImageButton) findViewById(R.id.mapsButton);
+        redirectToMapsButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String street = contactInfo.get(3);
+                String y = contactInfo.get(4);
+                String[] array = y.split("/");
+                String city = array[0];
+                String state = array[1];
+                String zip = array[2];
+                String address = street+" "+city+" "+state+" "+zip;
+
+
+                Uri gmmIntentUri = Uri.parse("geo:0,0?q="+address);
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                startActivity(mapIntent);
             }
         });
 
