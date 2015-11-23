@@ -125,9 +125,12 @@ public class ViewContactActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                Intent intent = new Intent(Intent.ACTION_SEND);
-                intent.setType("text/html");
-                intent.putExtra(Intent.EXTRA_EMAIL, contactInfo.get(2));
+                //Intent intent = new Intent(Intent.ACTION_SEND);
+                ///intent.setType("text/html");
+                Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                        "mailto",contactInfo.get(2), null));
+                //intent.putExtra(Intent.EXTRA_EMAIL, contactInfo.get(2));
+
                 startActivity(Intent.createChooser(intent, "Send Email"));
 
             }
