@@ -61,28 +61,32 @@
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/call"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:background="@null"/>
 
         <ImageButton
             android:id="@+id/textButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/text"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:background="@null"/>
 
         <ImageButton
             android:id="@+id/emailButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/email"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:background="@null"/>
 
         <ImageButton
             android:id="@+id/mapsButton"
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:src="@drawable/maps"
-            android:layout_margin="10dp"/>
+            android:layout_margin="10dp"
+            android:background="@null"/>
 
         </LinearLayout>
         
