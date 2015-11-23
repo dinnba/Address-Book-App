@@ -95,4 +95,8 @@ public class ViewContactActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+/*    public void callButtonClicked(){
+        Log.d("Call button clicked", position + "");//Test print
+    }*/
 }
